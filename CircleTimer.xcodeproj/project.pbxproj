@@ -9,14 +9,24 @@
 /* Begin PBXBuildFile section */
 		CC0C7606279BD076006C220A /* CircleTimer WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CC0C7605279BD076006C220A /* CircleTimer WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CC0C760B279BD077006C220A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0C760A279BD077006C220A /* Assets.xcassets */; };
-		CC0C7611279BD077006C220A /* CircleTimer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CC0C7610279BD077006C220A /* CircleTimer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CC0C7616279BD077006C220A /* CircleTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C7615279BD077006C220A /* CircleTimerApp.swift */; };
-		CC0C7618279BD077006C220A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C7617279BD077006C220A /* ContentView.swift */; };
 		CC0C761A279BD077006C220A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C7619279BD077006C220A /* NotificationController.swift */; };
 		CC0C761C279BD077006C220A /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C761B279BD077006C220A /* NotificationView.swift */; };
 		CC0C761E279BD077006C220A /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C761D279BD077006C220A /* ComplicationController.swift */; };
 		CC0C7620279BD077006C220A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0C761F279BD077006C220A /* Assets.xcassets */; };
 		CC0C7623279BD077006C220A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0C7622279BD077006C220A /* Preview Assets.xcassets */; };
+		CC0C7639279BD23B006C220A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C7638279BD23B006C220A /* SettingsView.swift */; };
+		CC0C763B279BD241006C220A /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C763A279BD241006C220A /* TimerView.swift */; };
+		CC0C7640279BD325006C220A /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C763F279BD325006C220A /* TimerViewModel.swift */; };
+		CC0C7642279BD32E006C220A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C7641279BD32E006C220A /* SettingsViewModel.swift */; };
+		CC0C7644279BD335006C220A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C7643279BD335006C220A /* HomeViewModel.swift */; };
+		CC970131279BD7EC00208A51 /* CircleTimer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CC0C7610279BD077006C220A /* CircleTimer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CC970136279BD9D900208A51 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0C7617279BD077006C220A /* HomeView.swift */; };
+		CC970139279BDC0B00208A51 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970138279BDC0B00208A51 /* TimePickerView.swift */; };
+		CC97013B279BDCB300208A51 /* TimePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97013A279BDCB300208A51 /* TimePickerViewModel.swift */; };
+		CC97013E279BDF2F00208A51 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97013D279BDF2F00208A51 /* IntExtension.swift */; };
+		CC970141279C134A00208A51 /* CountdownCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970140279C134A00208A51 /* CountdownCircleView.swift */; };
+		CC970143279C175800208A51 /* CountdownCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970142279C175800208A51 /* CountdownCircleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +37,7 @@
 			remoteGlobalIDString = CC0C7604279BD076006C220A;
 			remoteInfo = "CircleTimer WatchKit App";
 		};
-		CC0C7612279BD077006C220A /* PBXContainerItemProxy */ = {
+		CC970132279BD7EC00208A51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CC0C75FB279BD076006C220A /* Project object */;
 			proxyType = 1;
@@ -37,17 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CC0C762B279BD077006C220A /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				CC0C7611279BD077006C220A /* CircleTimer WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CC0C762F279BD077006C220A /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,6 +58,17 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC970134279BD7EC00208A51 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CC970131279BD7EC00208A51 /* CircleTimer WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +77,7 @@
 		CC0C760A279BD077006C220A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC0C7610279BD077006C220A /* CircleTimer WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CircleTimer WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0C7615279BD077006C220A /* CircleTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTimerApp.swift; sourceTree = "<group>"; };
-		CC0C7617279BD077006C220A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC0C7617279BD077006C220A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CC0C7619279BD077006C220A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		CC0C761B279BD077006C220A /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		CC0C761D279BD077006C220A /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -75,6 +85,16 @@
 		CC0C7622279BD077006C220A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC0C7624279BD077006C220A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC0C7625279BD077006C220A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		CC0C7638279BD23B006C220A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CC0C763A279BD241006C220A /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		CC0C763F279BD325006C220A /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		CC0C7641279BD32E006C220A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		CC0C7643279BD335006C220A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CC970138279BDC0B00208A51 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		CC97013A279BDCB300208A51 /* TimePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewModel.swift; sourceTree = "<group>"; };
+		CC97013D279BDF2F00208A51 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		CC970140279C134A00208A51 /* CountdownCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCircleView.swift; sourceTree = "<group>"; };
+		CC970142279C175800208A51 /* CountdownCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCircleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +114,7 @@
 				CC0C7609279BD076006C220A /* CircleTimer WatchKit App */,
 				CC0C7614279BD077006C220A /* CircleTimer WatchKit Extension */,
 				CC0C7602279BD076006C220A /* Products */,
+				CC970130279BD7EC00208A51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,15 +139,13 @@
 		CC0C7614279BD077006C220A /* CircleTimer WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				CC0C7615279BD077006C220A /* CircleTimerApp.swift */,
-				CC0C7617279BD077006C220A /* ContentView.swift */,
-				CC0C7619279BD077006C220A /* NotificationController.swift */,
-				CC0C761B279BD077006C220A /* NotificationView.swift */,
-				CC0C761D279BD077006C220A /* ComplicationController.swift */,
-				CC0C761F279BD077006C220A /* Assets.xcassets */,
-				CC0C7624279BD077006C220A /* Info.plist */,
-				CC0C7625279BD077006C220A /* PushNotificationPayload.apns */,
+				CC97013C279BDF2400208A51 /* Extensions */,
+				CC0C7633279BD10B006C220A /* App */,
+				CC0C7637279BD156006C220A /* Complication */,
+				CC0C7635279BD126006C220A /* Notification */,
 				CC0C7621279BD077006C220A /* Preview Content */,
+				CC0C7636279BD13F006C220A /* Resources */,
+				CC0C7634279BD11E006C220A /* View */,
 			);
 			path = "CircleTimer WatchKit Extension";
 			sourceTree = "<group>";
@@ -137,6 +156,113 @@
 				CC0C7622279BD077006C220A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CC0C7633279BD10B006C220A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CC0C7615279BD077006C220A /* CircleTimerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CC0C7634279BD11E006C220A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC97013F279C133100208A51 /* CountdownCircleView */,
+				CC970137279BDBFD00208A51 /* TimePickerView */,
+				CC0C763E279BD313006C220A /* Timer */,
+				CC0C763D279BD30D006C220A /* Settings */,
+				CC0C763C279BD309006C220A /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CC0C7635279BD126006C220A /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CC0C7619279BD077006C220A /* NotificationController.swift */,
+				CC0C761B279BD077006C220A /* NotificationView.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		CC0C7636279BD13F006C220A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CC0C761F279BD077006C220A /* Assets.xcassets */,
+				CC0C7624279BD077006C220A /* Info.plist */,
+				CC0C7625279BD077006C220A /* PushNotificationPayload.apns */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CC0C7637279BD156006C220A /* Complication */ = {
+			isa = PBXGroup;
+			children = (
+				CC0C761D279BD077006C220A /* ComplicationController.swift */,
+			);
+			path = Complication;
+			sourceTree = "<group>";
+		};
+		CC0C763C279BD309006C220A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CC0C7617279BD077006C220A /* HomeView.swift */,
+				CC0C7643279BD335006C220A /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CC0C763D279BD30D006C220A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CC0C7638279BD23B006C220A /* SettingsView.swift */,
+				CC0C7641279BD32E006C220A /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		CC0C763E279BD313006C220A /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				CC0C763A279BD241006C220A /* TimerView.swift */,
+				CC0C763F279BD325006C220A /* TimerViewModel.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		CC970130279BD7EC00208A51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC970137279BDBFD00208A51 /* TimePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				CC970138279BDC0B00208A51 /* TimePickerView.swift */,
+				CC97013A279BDCB300208A51 /* TimePickerViewModel.swift */,
+			);
+			path = TimePickerView;
+			sourceTree = "<group>";
+		};
+		CC97013C279BDF2400208A51 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CC97013D279BDF2F00208A51 /* IntExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CC97013F279C133100208A51 /* CountdownCircleView */ = {
+			isa = PBXGroup;
+			children = (
+				CC970140279C134A00208A51 /* CountdownCircleView.swift */,
+				CC970142279C175800208A51 /* CountdownCircleViewModel.swift */,
+			);
+			path = CountdownCircleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,12 +290,12 @@
 			buildConfigurationList = CC0C762C279BD077006C220A /* Build configuration list for PBXNativeTarget "CircleTimer WatchKit App" */;
 			buildPhases = (
 				CC0C7603279BD076006C220A /* Resources */,
-				CC0C762B279BD077006C220A /* Embed App Extensions */,
+				CC970134279BD7EC00208A51 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CC0C7613279BD077006C220A /* PBXTargetDependency */,
+				CC970133279BD7EC00208A51 /* PBXTargetDependency */,
 			);
 			name = "CircleTimer WatchKit App";
 			productName = "CircleTimer WatchKit App";
@@ -202,6 +328,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = "Kirill Kunst";
 				TargetAttributes = {
 					CC0C7600279BD076006C220A = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -266,11 +393,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0C763B279BD241006C220A /* TimerView.swift in Sources */,
+				CC97013B279BDCB300208A51 /* TimePickerViewModel.swift in Sources */,
 				CC0C761A279BD077006C220A /* NotificationController.swift in Sources */,
-				CC0C7618279BD077006C220A /* ContentView.swift in Sources */,
+				CC0C7644279BD335006C220A /* HomeViewModel.swift in Sources */,
+				CC970143279C175800208A51 /* CountdownCircleViewModel.swift in Sources */,
+				CC970141279C134A00208A51 /* CountdownCircleView.swift in Sources */,
+				CC970136279BD9D900208A51 /* HomeView.swift in Sources */,
 				CC0C761E279BD077006C220A /* ComplicationController.swift in Sources */,
+				CC0C7640279BD325006C220A /* TimerViewModel.swift in Sources */,
+				CC97013E279BDF2F00208A51 /* IntExtension.swift in Sources */,
+				CC0C7639279BD23B006C220A /* SettingsView.swift in Sources */,
 				CC0C7616279BD077006C220A /* CircleTimerApp.swift in Sources */,
 				CC0C761C279BD077006C220A /* NotificationView.swift in Sources */,
+				CC970139279BDC0B00208A51 /* TimePickerView.swift in Sources */,
+				CC0C7642279BD32E006C220A /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +419,10 @@
 			target = CC0C7604279BD076006C220A /* CircleTimer WatchKit App */;
 			targetProxy = CC0C7607279BD076006C220A /* PBXContainerItemProxy */;
 		};
-		CC0C7613279BD077006C220A /* PBXTargetDependency */ = {
+		CC970133279BD7EC00208A51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CC0C760F279BD077006C220A /* CircleTimer WatchKit Extension */;
-			targetProxy = CC0C7612279BD077006C220A /* PBXContainerItemProxy */;
+			targetProxy = CC970132279BD7EC00208A51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -341,6 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -395,6 +533,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -414,9 +553,9 @@
 				DEVELOPMENT_TEAM = 983G5U62PZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "CircleTimer WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "CircleTimer WatchKit Extension/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "CircleTimer WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -425,7 +564,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mintrocket.CircleTimer.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kunst.circletimer.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -446,9 +585,9 @@
 				DEVELOPMENT_TEAM = 983G5U62PZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "CircleTimer WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "CircleTimer WatchKit Extension/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "CircleTimer WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,7 +596,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mintrocket.CircleTimer.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kunst.circletimer.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -471,7 +610,6 @@
 		CC0C762D279BD077006C220A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -479,11 +617,10 @@
 				DEVELOPMENT_TEAM = 983G5U62PZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = CircleTimer_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "CircleTimer WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mintrocket.CircleTimer.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kunst.circletimer.watchkitapp;
+				PRODUCT_NAME = "CircleTimer WatchKit App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -496,7 +633,6 @@
 		CC0C762E279BD077006C220A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,11 +640,10 @@
 				DEVELOPMENT_TEAM = 983G5U62PZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = CircleTimer_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "CircleTimer WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mintrocket.CircleTimer.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kunst.circletimer.watchkitapp;
+				PRODUCT_NAME = "CircleTimer WatchKit App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -525,7 +660,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 983G5U62PZ;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mintrocket.CircleTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kunst.circletimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -538,7 +673,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 983G5U62PZ;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mintrocket.CircleTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kunst.circletimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

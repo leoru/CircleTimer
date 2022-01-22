@@ -12,10 +12,10 @@ struct CircleTimerApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                HomeView()
             }
         }
 
-        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
+        WKNotificationScene(controller: NotificationController.self, category: "circleTimerCategory")
     }
 }
