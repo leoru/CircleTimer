@@ -145,7 +145,7 @@
 				CC0C7635279BD126006C220A /* Notification */,
 				CC0C7621279BD077006C220A /* Preview Content */,
 				CC0C7636279BD13F006C220A /* Resources */,
-				CC0C7634279BD11E006C220A /* View */,
+				CC0C7634279BD11E006C220A /* Modules */,
 			);
 			path = "CircleTimer WatchKit Extension";
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		CC0C7634279BD11E006C220A /* View */ = {
+		CC0C7634279BD11E006C220A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				CC97013F279C133100208A51 /* CountdownCircleView */,
@@ -175,7 +175,7 @@
 				CC0C763D279BD30D006C220A /* Settings */,
 				CC0C763C279BD309006C220A /* Home */,
 			);
-			path = View;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		CC0C7635279BD126006C220A /* Notification */ = {
