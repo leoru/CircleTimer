@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  CircleTimer
+
+  Created by Kirill Kunst on 24.01.2022.
+  Copyright © 2022 Kirill Kunst. All rights reserved.
+*/
+
+"stop" = "Stop";
+"cancel" = "Cancel";
+"start" = "Start";
+"timers" = "Timers";
+"recent" = "Recent";
+"settings" = "Settings";
+"minutes" = "Minutes";
+"hours" = "Hours";
+"seconds" = "Seconds";
+
+

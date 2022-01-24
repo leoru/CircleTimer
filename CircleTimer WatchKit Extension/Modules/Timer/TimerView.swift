@@ -11,13 +11,10 @@ struct TimerView: View {
     
     @ObservedObject private var viewModel = TimerViewModel(appContext: AppContext.shared)
     
-    init(timer: CircleTimer?) {
-        viewModel.timer = timer
-    }
-    
     var body: some View {
         VStack {
             CountdownCircleView(progress: $viewModel.progress, timeLabel: $viewModel.timeString)
+                .padding(EdgeInsets(top: 5.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
             HStack {
                 cancelButton
                 Spacer()
@@ -25,7 +22,7 @@ struct TimerView: View {
             }
         }
         .onAppear {
-            viewModel.startTimer()
+            viewModel.start()
         }
     }
     

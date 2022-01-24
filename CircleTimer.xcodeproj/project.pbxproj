@@ -26,13 +26,15 @@
 		CC97013B279BDCB300208A51 /* TimePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97013A279BDCB300208A51 /* TimePickerViewModel.swift */; };
 		CC97013E279BDF2F00208A51 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97013D279BDF2F00208A51 /* IntExtension.swift */; };
 		CC970141279C134A00208A51 /* CountdownCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970140279C134A00208A51 /* CountdownCircleView.swift */; };
-		CC970143279C175800208A51 /* CountdownCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970142279C175800208A51 /* CountdownCircleViewModel.swift */; };
 		CC970148279D575900208A51 /* CircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970147279D575900208A51 /* CircleTimer.swift */; };
 		CC97014D279D57FF00208A51 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97014C279D57FF00208A51 /* AppContext.swift */; };
 		CC970153279D592600208A51 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970152279D592600208A51 /* TimerService.swift */; };
 		CC970156279D595900208A51 /* TimerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970155279D595900208A51 /* TimerRepository.swift */; };
 		CCCBDA18279EC44400E69B51 /* UserDefaults+Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCBDA17279EC44400E69B51 /* UserDefaults+Coding.swift */; };
 		CCCBDA1A279EC7B900E69B51 /* TimerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCBDA19279EC7B900E69B51 /* TimerWorker.swift */; };
+		CCCBDA20279F29E500E69B51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCCBDA22279F29E500E69B51 /* Localizable.strings */; };
+		CCCBDA25279F2AAA00E69B51 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCBDA24279F2AAA00E69B51 /* String+Localizable.swift */; };
+		CCCBDA27279F2CF100E69B51 /* TimePickerTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCBDA26279F2CF100E69B51 /* TimePickerTitleModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,13 +102,16 @@
 		CC97013A279BDCB300208A51 /* TimePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewModel.swift; sourceTree = "<group>"; };
 		CC97013D279BDF2F00208A51 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		CC970140279C134A00208A51 /* CountdownCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCircleView.swift; sourceTree = "<group>"; };
-		CC970142279C175800208A51 /* CountdownCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCircleViewModel.swift; sourceTree = "<group>"; };
 		CC970147279D575900208A51 /* CircleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTimer.swift; sourceTree = "<group>"; };
 		CC97014C279D57FF00208A51 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		CC970152279D592600208A51 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 		CC970155279D595900208A51 /* TimerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRepository.swift; sourceTree = "<group>"; };
 		CCCBDA17279EC44400E69B51 /* UserDefaults+Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Coding.swift"; sourceTree = "<group>"; };
 		CCCBDA19279EC7B900E69B51 /* TimerWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWorker.swift; sourceTree = "<group>"; };
+		CCCBDA21279F29E500E69B51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CCCBDA23279F29F600E69B51 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CCCBDA24279F2AAA00E69B51 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		CCCBDA26279F2CF100E69B51 /* TimePickerTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerTitleModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +206,7 @@
 		CC0C7636279BD13F006C220A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CCCBDA22279F29E500E69B51 /* Localizable.strings */,
 				CC0C7621279BD077006C220A /* Preview Content */,
 				CC0C761F279BD077006C220A /* Assets.xcassets */,
 				CC0C7624279BD077006C220A /* Info.plist */,
@@ -256,6 +262,7 @@
 			children = (
 				CC970138279BDC0B00208A51 /* TimePickerView.swift */,
 				CC97013A279BDCB300208A51 /* TimePickerViewModel.swift */,
+				CCCBDA26279F2CF100E69B51 /* TimePickerTitleModifier.swift */,
 			);
 			path = TimePickerView;
 			sourceTree = "<group>";
@@ -264,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				CC97013D279BDF2F00208A51 /* IntExtension.swift */,
+				CCCBDA24279F2AAA00E69B51 /* String+Localizable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				CC970140279C134A00208A51 /* CountdownCircleView.swift */,
-				CC970142279C175800208A51 /* CountdownCircleViewModel.swift */,
 			);
 			path = CountdownCircleView;
 			sourceTree = "<group>";
@@ -322,10 +329,10 @@
 		CC970150279D590200208A51 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CCCBDA16279EC42F00E69B51 /* Extensions */,
-				CC970154279D594B00208A51 /* Repositories */,
 				CC97014E279D58D800208A51 /* Context */,
+				CCCBDA16279EC42F00E69B51 /* Extensions */,
 				CC970146279D574C00208A51 /* Models */,
+				CC970154279D594B00208A51 /* Repositories */,
 				CC97014F279D58F900208A51 /* Services */,
 			);
 			path = Core;
@@ -434,6 +441,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = CC0C75FA279BD076006C220A;
 			packageReferences = (
@@ -470,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0C7623279BD077006C220A /* Preview Assets.xcassets in Resources */,
+				CCCBDA20279F29E500E69B51 /* Localizable.strings in Resources */,
 				CC0C7620279BD077006C220A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,13 +498,14 @@
 				CC970153279D592600208A51 /* TimerService.swift in Sources */,
 				CC97014D279D57FF00208A51 /* AppContext.swift in Sources */,
 				CC0C7644279BD335006C220A /* HomeViewModel.swift in Sources */,
-				CC970143279C175800208A51 /* CountdownCircleViewModel.swift in Sources */,
+				CCCBDA27279F2CF100E69B51 /* TimePickerTitleModifier.swift in Sources */,
 				CC970141279C134A00208A51 /* CountdownCircleView.swift in Sources */,
 				CC970136279BD9D900208A51 /* HomeView.swift in Sources */,
 				CC0C761E279BD077006C220A /* ComplicationController.swift in Sources */,
 				CC0C7640279BD325006C220A /* TimerViewModel.swift in Sources */,
 				CC97013E279BDF2F00208A51 /* IntExtension.swift in Sources */,
 				CC0C7639279BD23B006C220A /* SettingsView.swift in Sources */,
+				CCCBDA25279F2AAA00E69B51 /* String+Localizable.swift in Sources */,
 				CCCBDA18279EC44400E69B51 /* UserDefaults+Coding.swift in Sources */,
 				CC0C7616279BD077006C220A /* CircleTimerApp.swift in Sources */,
 				CC0C761C279BD077006C220A /* NotificationView.swift in Sources */,
@@ -520,11 +530,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		CCCBDA22279F29E500E69B51 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCCBDA21279F29E500E69B51 /* en */,
+				CCCBDA23279F29F600E69B51 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		CC0C7626279BD077006C220A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -586,6 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

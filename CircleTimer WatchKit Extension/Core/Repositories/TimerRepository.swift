@@ -20,7 +20,10 @@ class TimerRepository: TimerRepositoryProtocol {
         static let timersKey = "com.kunst.circletimer.storage.timers"
     }
     
+    /// By default, we store all timers directly in the memory
     private var inMemoryTimers: [CircleTimer] = [CircleTimer]()
+    
+    /// Standard user defaults storage is our basic storage
     private var defaults: UserDefaults = UserDefaults.standard
     
     init() {

@@ -20,12 +20,12 @@ struct HomeView: View {
             
             Spacer()
         }
-        .navigationTitle("Timers")
+        .navigationTitle("timers".localized)
     }
     
     var settingsButton: some View {
         NavigationLink(destination: SettingsView()) {
-            Text("Settings")
+            Text("settings".localized)
         }
     }
 }

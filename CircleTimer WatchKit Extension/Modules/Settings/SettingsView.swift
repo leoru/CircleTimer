@@ -8,34 +8,38 @@
 import SwiftUI
 
 struct SettingsView: View {
-
+    
     @ObservedObject private var viewModel = SettingsViewModel(appContext: AppContext.shared)
+    @Environment(\.presentationMode) var presentationMode
+    
     
     @State var isStart: Bool = false
     
     var body: some View {
         VStack {
             TimePickerView(hour: $viewModel.hour, minute: $viewModel.minute, second: $viewModel.second)
+            Spacer()
             HStack {
                 stopButton
                 startButton
             }
-            Spacer()
         }
+        .navigationBarHidden(true)
     }
     
     var startButton: some View {
-        NavigationLink(destination: TimerView(timer: viewModel.createdTimer), isActive: $isStart) {
-            Button("Start") {
+        VStack {
+            NavigationLink(destination: TimerView(), isActive: $isStart) { EmptyView().hidden().padding(0) }.hidden().padding(0)
+            Button("start".localized) {
                 viewModel.start()
                 isStart.toggle()
-            }
+            }.padding(0)
         }
     }
     
     var stopButton: some View {
-        NavigationLink(destination: HomeView()) {
-            Text("Stop")
+        Button("cancel".localized) {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

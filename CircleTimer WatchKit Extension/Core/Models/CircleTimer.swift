@@ -8,9 +8,15 @@
 
 import Foundation
 
-class CircleTimer: Codable, Identifiable {
+class CircleTimer: Codable, Identifiable, ObservableObject {
+    
+    /// We need some UID for every timer to store it
     var id: String
+    
+    /// Total seconds amount
     var seconds: Int
+    
+    /// Is this timer repeative
     var continious: Bool
     
     init(seconds: Int, continious: Bool) {

@@ -9,6 +9,7 @@
 import Foundation
 
 protocol TimerServiceProtocol {
+    var currentTimer: CircleTimer? { get set }
     func fetchTimers() -> [CircleTimer]
     func add(timer: CircleTimer)
     func raiseWorker(for timer: CircleTimer) -> TimerWorker
@@ -18,6 +19,7 @@ protocol TimerServiceProtocol {
 class TimerService: TimerServiceProtocol {
     private var repo: TimerRepositoryProtocol
     private var workers = [String: TimerWorker]()
+    var currentTimer: CircleTimer?
     
     init(repo: TimerRepositoryProtocol) {
         self.repo = repo

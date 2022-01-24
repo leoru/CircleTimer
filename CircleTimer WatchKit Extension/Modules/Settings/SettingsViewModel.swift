@@ -9,7 +9,6 @@ import Foundation
 
 class SettingsViewModel: ObservableObject {
     
-    var createdTimer: CircleTimer?
     @Published var hour: Int = 0
     @Published var minute: Int = 0
     @Published var second: Int = 0
@@ -27,8 +26,7 @@ class SettingsViewModel: ObservableObject {
     func start() {
         let timer = CircleTimer(seconds: totalSeconds, continious: true)
         timerService.add(timer: timer)
-        createdTimer = timer
+        timerService.currentTimer = timer
     }
-    
     
 }

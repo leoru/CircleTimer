@@ -9,14 +9,18 @@
 import Foundation
 
 extension Int {
+    
+    /// Format integer with leading zeros
     var formattedString: String {
         String(format: "%02d", self)
     }
     
+    /// Calculate components of seconds value
     var secondsToHoursMinutesSeconds: (Int, Int, Int) {
         return (self / 3600, (self % 3600) / 60, (self % 3600) % 60)
     }
     
+    /// Format seconds value
     var formattedSecondsView: String {
         var components = [String]()
         

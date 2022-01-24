@@ -37,7 +37,7 @@ struct TimePickerView: View {
                     .tag(hour)
             }
         } label: {
-            Text("Hours")
+            pickerTitle(for: "hours".localized)
         }
     }
     
@@ -49,7 +49,7 @@ struct TimePickerView: View {
                     .tag(minute)
             }
         } label: {
-            Text("Minutes")
+            pickerTitle(for: "minutes".localized)
         }
     }
     
@@ -61,7 +61,13 @@ struct TimePickerView: View {
                     .tag(second)
             }
         } label: {
-            Text("Seconds")
+            pickerTitle(for: "seconds".localized)
         }
+    }
+    
+    private func pickerTitle(for text: String) -> some View {
+        VStack {
+            Text(text).modifier(TimePickerTitleModifier())
+        }.modifier(TimePickerTitleContainerModifier())
     }
 }
