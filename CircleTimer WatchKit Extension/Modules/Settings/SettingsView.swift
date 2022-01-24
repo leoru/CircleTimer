@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @Environment(\.appContext) var context
+    private lazy var viewModel = SettingsViewModel(appContext: context)
+    
     var body: some View {
         VStack {
            TimePickerView()

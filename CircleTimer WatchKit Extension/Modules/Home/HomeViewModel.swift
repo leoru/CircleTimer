@@ -8,5 +8,9 @@
 import Foundation
 
 struct HomeViewModel {
+    private var timerService: TimerServiceProtocol
     
+    init(appContext: AppContextProtocol) {
+        timerService = appContext.timerService
+    }
 }

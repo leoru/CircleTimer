@@ -11,8 +11,11 @@ import UIKit
 class TimerViewModel: ObservableObject {
     @Published var progress: Float
     
+    private var timerService: TimerServiceProtocol
     
-    init() {
+    init(appContext: AppContextProtocol) {
+        timerService = appContext.timerService
         progress = 0.5
     }
+
 }

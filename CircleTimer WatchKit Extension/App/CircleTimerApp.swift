@@ -13,6 +13,7 @@ struct CircleTimerApp: App {
         WindowGroup {
             NavigationView {
                 HomeView()
+                    .environment(\.appContext, AppContext.shared)
             }
         }
 

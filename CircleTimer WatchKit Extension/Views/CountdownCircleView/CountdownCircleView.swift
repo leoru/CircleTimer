@@ -48,6 +48,7 @@ struct CountdownCircleView: View {
     
     var countdownTimeLabel: some View {
         Text("01:50").foregroundColor(.white)
+        
             .font(Font.system(size: 30.0))
     }
     
