@@ -7,24 +7,33 @@
 //
 
 import Foundation
+import WatchKit
 
 class TimerWorker {
-    
+
+    /// Every second timer to countdown
     private var timer: Timer?
+    
+    /// Total seconds before timer firing
     private var seconds: Int
+    
+    /// Actual seconds before firing
+    @Published private(set) var secondsLeft: Int
+    
+    /// Should worker work repeatively
     private var continious: Bool
-    private var secondsLeft: Int = 0
     
     //TODO: add publisher
     
     init(seconds: Int, continious: Bool) {
         self.seconds = seconds
         self.continious = continious
+        self.secondsLeft = seconds
     }
     
     func start() {
         secondsLeft = seconds
-        timer = Timer(timeInterval: 1.0, repeats: true, block: { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
             guard let self = self else { return }
             self.checkCycle()
         })
@@ -42,12 +51,12 @@ class TimerWorker {
     private func restart() {
         stop()
         fireSound()
-        secondsLeft = 0
+        secondsLeft = seconds
         start()
     }
     
     private func checkCycle() {
-        if secondsLeft == seconds {
+        if secondsLeft == 0 {
             restart()
         } else {
             secondsLeft -= 1
@@ -55,11 +64,7 @@ class TimerWorker {
     }
     
     private func fireSound() {
-        makeFeedback()
-        //TODO: play sound
+        WKInterfaceDevice.current().play(.success)
     }
-    
-    private func makeFeedback() {
-        
-    }
+
 }

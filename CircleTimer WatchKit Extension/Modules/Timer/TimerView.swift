@@ -11,32 +11,29 @@ struct TimerView: View {
     
     @ObservedObject private var viewModel = TimerViewModel(appContext: AppContext.shared)
     
+    init(timer: CircleTimer?) {
+        viewModel.timer = timer
+    }
+    
     var body: some View {
         VStack {
-            CountdownCircleView(progress: $viewModel.progress)
+            CountdownCircleView(progress: $viewModel.progress, timeLabel: $viewModel.timeString)
             HStack {
                 cancelButton
                 Spacer()
                 pauseButton
             }
         }
+        .onAppear {
+            viewModel.startTimer()
+        }
     }
     
     var pauseButton: some View {
-        NavigationLink(destination: TimerView()) {
-            Text("Start")
-        }
+        EmptyView()
     }
     
     var cancelButton: some View {
-        NavigationLink(destination: HomeView()) {
-            Text("Stop")
-        }
-    }
-}
-
-struct TimerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerView()
+        EmptyView()
     }
 }

@@ -10,11 +10,11 @@ import SwiftUI
 
 struct TimePickerView: View {
     
-    private var viewModel = TimePickerViewModel()
+    var viewModel = TimePickerViewModel()
     
-    @State var hour: Int = 0
-    @State var minute: Int = 0
-    @State var second: Int = 0
+    @Binding public var hour: Int
+    @Binding public var minute: Int
+    @Binding public var second: Int
     
     var body: some View {
         componentPickers
@@ -63,11 +63,5 @@ struct TimePickerView: View {
         } label: {
             Text("Seconds")
         }
-    }
-}
-
-struct TimePickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimePickerView()
     }
 }

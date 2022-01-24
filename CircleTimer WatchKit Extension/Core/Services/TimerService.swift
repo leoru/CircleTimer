@@ -11,11 +11,12 @@ import Foundation
 protocol TimerServiceProtocol {
     func fetchTimers() -> [CircleTimer]
     func add(timer: CircleTimer)
+    func raiseWorker(for timer: CircleTimer) -> TimerWorker
+    func destroyWorker(for timer: CircleTimer)
 }
 
 class TimerService: TimerServiceProtocol {
     private var repo: TimerRepositoryProtocol
-    
     private var workers = [String: TimerWorker]()
     
     init(repo: TimerRepositoryProtocol) {
@@ -23,11 +24,11 @@ class TimerService: TimerServiceProtocol {
     }
     
     func fetchTimers() -> [CircleTimer] {
-        return []
+        return repo.fetchTimers()
     }
     
     func add(timer: CircleTimer) {
-        
+        repo.add(timer: timer)
     }
     
     func raiseWorker(for timer: CircleTimer) -> TimerWorker {
@@ -39,6 +40,11 @@ class TimerService: TimerServiceProtocol {
         workers[timer.id] = worker
         
         return worker
+    }
+    
+    func destroyWorker(for timer: CircleTimer) {
+        workers[timer.id]?.stop()
+        workers[timer.id] = nil
     }
     
 }

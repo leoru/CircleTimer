@@ -18,15 +18,13 @@ struct CountdownCircleView: View {
     }
     
     @Binding var progress: Float
+    @Binding var timeLabel: String
     
     var body: some View {
         ZStack {
             backgroundCircle
             foregroundCircle
-            VStack {
-                totalPeriodTimeLabel
-                countdownTimeLabel
-            }
+            countdownTimeLabel
         }
     }
     
@@ -47,14 +45,13 @@ struct CountdownCircleView: View {
     }
     
     var countdownTimeLabel: some View {
-        Text("01:50").foregroundColor(.white)
-        
+        Text(timeLabel).foregroundColor(.white)
             .font(Font.system(size: 30.0))
     }
-    
-    var totalPeriodTimeLabel: some View {
-        Text("2 min").foregroundColor(.white).opacity(0.8)
-            .font(Font.system(size: 17.0))
-    }
+//
+//    var totalPeriodTimeLabel: some View {
+//        Text("2 min").foregroundColor(.white).opacity(0.8)
+//            .font(Font.system(size: 17.0))
+//    }
     
 }

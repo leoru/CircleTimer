@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct SettingsView: View {
+
+    @ObservedObject private var viewModel = SettingsViewModel(appContext: AppContext.shared)
     
-    @Environment(\.appContext) var context
-    private lazy var viewModel = SettingsViewModel(appContext: context)
+    @State var isStart: Bool = false
     
     var body: some View {
         VStack {
-           TimePickerView()
+            TimePickerView(hour: $viewModel.hour, minute: $viewModel.minute, second: $viewModel.second)
             HStack {
                 stopButton
                 startButton
@@ -24,8 +25,11 @@ struct SettingsView: View {
     }
     
     var startButton: some View {
-        NavigationLink(destination: TimerView()) {
-            Text("Start")
+        NavigationLink(destination: TimerView(timer: viewModel.createdTimer), isActive: $isStart) {
+            Button("Start") {
+                viewModel.start()
+                isStart.toggle()
+            }
         }
     }
     
