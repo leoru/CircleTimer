@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol TimerServiceProtocol {
     var currentTimer: CircleTimer? { get set }
-    func fetchTimers() -> [CircleTimer]
+    func timersPublisher() -> AnyPublisher<[CircleTimer], Never>
     func add(timer: CircleTimer)
     func raiseWorker(for timer: CircleTimer) -> TimerWorker
     func destroyWorker(for timer: CircleTimer)
@@ -25,8 +26,8 @@ class TimerService: TimerServiceProtocol {
         self.repo = repo
     }
     
-    func fetchTimers() -> [CircleTimer] {
-        return repo.fetchTimers()
+    func timersPublisher() -> AnyPublisher<[CircleTimer], Never> {
+        return repo.timersPublisher()
     }
     
     func add(timer: CircleTimer) {
@@ -41,6 +42,7 @@ class TimerService: TimerServiceProtocol {
         let worker = TimerWorker(seconds: timer.seconds, continious: timer.continious)
         workers[timer.id] = worker
         
+        print("[TIMER_WORKER] new worker raised")
         return worker
     }
     

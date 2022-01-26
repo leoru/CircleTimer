@@ -9,13 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @Environment(\.appContext) var context
-    private lazy var viewModel = SettingsViewModel(appContext: context)
+    @ObservedObject var viewModel = HomeViewModel(appContext: AppContext.shared)
     
     var body: some View {
         VStack() {
             ScrollView(.vertical, showsIndicators: false) {
                 settingsButton
+                timersList
             }
             
             Spacer()
@@ -26,6 +26,42 @@ struct HomeView: View {
     var settingsButton: some View {
         NavigationLink(destination: SettingsView()) {
             Text("settings".localized)
+        }
+    }
+    
+    var timersList: some View {
+        VStack {
+            Text("recent".localized)
+            ForEach(viewModel.timers) { timer in
+                listItem(for: timer)
+            }
+        }
+        .padding(.top, 10.0)
+    }
+    
+    func listItem(for timer: CircleTimer) -> some View {
+        NavigationLink(destination: viewModel.isTimerCreated ? TimerView() : nil, isActive: isActiveLink(for: timer)) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10.0)
+                    .foregroundColor(.orange)
+                    .cornerRadius(10.0)
+                    .frame(height: 50.0)
+                Text(timer.seconds.formattedSecondsView)
+                    .foregroundColor(Color.black)
+                    .onTapGesture {
+                        viewModel.select(timer: timer)
+                        isActiveLink(for: timer).wrappedValue.toggle()
+                    }
+            }
+            
+        }.buttonStyle(PlainButtonStyle())
+    }
+    
+    func isActiveLink(for timer: CircleTimer) -> Binding<Bool> {
+        return .init(get: { () -> Bool in
+            return self.viewModel.activeLinks[timer.id] ?? false
+        }) { value in
+            self.viewModel.activeLinks[timer.id] = value
         }
     }
 }

@@ -13,6 +13,14 @@ class SettingsViewModel: ObservableObject {
     @Published var minute: Int = 0
     @Published var second: Int = 0
     
+    var isTimerCreated: Bool {
+        timerService.currentTimer != nil
+    }
+    
+    var isTimerShouldBeCreated: Bool {
+        totalSeconds > 0
+    }
+    
     private var totalSeconds: Int {
         return (hour * 60 * 60) + (minute * 60) + second
     }

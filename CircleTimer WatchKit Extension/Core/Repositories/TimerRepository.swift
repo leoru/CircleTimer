@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol TimerRepositoryProtocol {
-    func fetchTimers() -> [CircleTimer]
+    func timersPublisher() -> AnyPublisher<[CircleTimer], Never>
     func add(timer: CircleTimer)
 }
 
@@ -21,7 +22,7 @@ class TimerRepository: TimerRepositoryProtocol {
     }
     
     /// By default, we store all timers directly in the memory
-    private var inMemoryTimers: [CircleTimer] = [CircleTimer]()
+    @Published private var inMemoryTimers: [CircleTimer] = [CircleTimer]()
     
     /// Standard user defaults storage is our basic storage
     private var defaults: UserDefaults = UserDefaults.standard
@@ -30,11 +31,15 @@ class TimerRepository: TimerRepositoryProtocol {
         inMemoryTimers = try! defaults.get(objectType: [CircleTimer].self, forKey: Config.timersKey) ?? []
     }
     
-    func fetchTimers() -> [CircleTimer] {
-        return inMemoryTimers
+    func timersPublisher() -> AnyPublisher<[CircleTimer], Never> {
+        return $inMemoryTimers.eraseToAnyPublisher()
     }
     
     func add(timer: CircleTimer) {
+        if inMemoryTimers.first(where: { $0.seconds == timer.seconds }) != nil {
+            return
+        }
+        
         inMemoryTimers.append(timer)
         try? defaults.set(object: inMemoryTimers, forKey: Config.timersKey)
     }

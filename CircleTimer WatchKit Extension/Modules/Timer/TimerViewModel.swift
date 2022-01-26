@@ -14,6 +14,7 @@ class TimerViewModel: ObservableObject {
     @Published var timer: CircleTimer?
     @Published var progress: Float = 1.0
     @Published var timeString: String = ""
+    @Published var isPaused: Bool = false
     
     private var timerService: TimerServiceProtocol
     private var worker: TimerWorker?
@@ -36,17 +37,27 @@ class TimerViewModel: ObservableObject {
         }).store(in: &cancellables)
         
         worker?.start()
+
     }
     
     func stop() {
         worker?.stop()
-        
         guard let timer = self.timer else { return }
         timerService.destroyWorker(for: timer)
+        
+        timerService.currentTimer = nil
     }
     
-    func pause() {
-        worker?.pause()
+    func toggle() {
+        guard let worker = worker else { return }
+        
+        if worker.state == .active {
+            worker.pause()
+            isPaused = true
+        } else if worker.state == .paused {
+            worker.resume()
+            isPaused = false
+        }
     }
     
     func restart() {

@@ -25,22 +25,44 @@ struct SettingsView: View {
             }
         }
         .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
     
     var startButton: some View {
-        VStack {
-            NavigationLink(destination: TimerView(), isActive: $isStart) { EmptyView().hidden().padding(0) }.hidden().padding(0)
-            Button("start".localized) {
-                viewModel.start()
-                isStart.toggle()
-            }.padding(0)
-        }
+        NavigationLink(destination: viewModel.isTimerCreated ? TimerView() : nil, isActive: $isStart) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20.0)
+                    .foregroundColor(.green)
+                    .cornerRadius(20.0)
+                    .frame(height: 44.0)
+                Text("start".localized)
+                    .foregroundColor(Color.black)
+                    .onTapGesture {
+                        if viewModel.isTimerShouldBeCreated {
+                            viewModel.start()
+                            isStart.toggle()
+                        }
+                    }
+            }
+            
+        }.buttonStyle(PlainButtonStyle())
     }
     
     var stopButton: some View {
-        Button("cancel".localized) {
+        Button(action: {
             presentationMode.wrappedValue.dismiss()
-        }
+        }, label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20.0)
+                    .foregroundColor(.white)
+                    .opacity(0.2)
+                    .cornerRadius(20.0)
+                    .frame(height: 44.0)
+                Text("cancel".localized)
+                    .foregroundColor(Color.white)
+            }
+        })
+            .buttonStyle(PlainButtonStyle())
     }
 }
 
