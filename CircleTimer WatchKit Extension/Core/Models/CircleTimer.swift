@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CircleTimer: Codable, Identifiable, ObservableObject {
+class CircleTimer: Codable, Identifiable, ObservableObject, Hashable {
     
     /// We need some UID for every timer to store it
     var id: String
@@ -19,9 +19,21 @@ class CircleTimer: Codable, Identifiable, ObservableObject {
     /// Is this timer repeative
     var continious: Bool
     
+    var createdDate: Date
+    
     init(seconds: Int, continious: Bool) {
         self.id = UUID().uuidString
+        self.createdDate = Date()
         self.seconds = seconds
         self.continious = continious
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(seconds)
+    }
+    
+    static func == (lhs: CircleTimer, rhs: CircleTimer) -> Bool {
+        lhs.id == rhs.id
     }
 }

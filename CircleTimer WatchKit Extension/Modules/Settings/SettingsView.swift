@@ -11,9 +11,7 @@ struct SettingsView: View {
     
     @ObservedObject private var viewModel = SettingsViewModel(appContext: AppContext.shared)
     @Environment(\.presentationMode) var presentationMode
-    
-    
-    @State var isStart: Bool = false
+    @State var isActive: Bool = false
     
     var body: some View {
         VStack {
@@ -29,23 +27,22 @@ struct SettingsView: View {
     }
     
     var startButton: some View {
-        NavigationLink(destination: viewModel.isTimerCreated ? TimerView() : nil, isActive: $isStart) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20.0)
-                    .foregroundColor(.green)
-                    .cornerRadius(20.0)
-                    .frame(height: 44.0)
-                Text("start".localized)
-                    .foregroundColor(Color.black)
-                    .onTapGesture {
-                        if viewModel.isTimerShouldBeCreated {
-                            viewModel.start()
-                            isStart.toggle()
-                        }
+        ZStack {
+            RoundedRectangle(cornerRadius: 20.0)
+                .foregroundColor(.green)
+                .cornerRadius(20.0)
+                .frame(height: 44.0)
+            Text("start".localized)
+                .foregroundColor(Color.black)
+                .onTapGesture {
+                    if viewModel.isTimerShouldBeCreated {
+                        viewModel.start()
+                        isActive.toggle()
                     }
-            }
-            
-        }.buttonStyle(PlainButtonStyle())
+                }
+        }
+        .background(NavigationLink(destination: viewModel.isTimerCreated ? TimerView() : nil, isActive: $isActive) { EmptyView() }
+                        .buttonStyle(PlainButtonStyle()))
     }
     
     var stopButton: some View {

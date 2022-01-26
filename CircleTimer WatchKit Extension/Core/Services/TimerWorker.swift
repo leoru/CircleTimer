@@ -16,7 +16,7 @@ class TimerWorker {
         case stopped
         case paused
     }
-
+    
     /// Every second timer to countdown
     private var timer: Timer?
     
@@ -27,10 +27,12 @@ class TimerWorker {
     @Published private(set) var secondsLeft: Int
     
     /// Count of cycles during timer session
-    @Published var ciclesCount: Int = 0
+    @Published var cyclesCount: Int = 0
     
     /// Should worker work repeatively
     private var continious: Bool
+    
+    private var session = WKExtendedRuntimeSession()
     
     var state: State = .stopped
     
@@ -40,9 +42,16 @@ class TimerWorker {
         self.secondsLeft = seconds
     }
     
+    deinit {
+        session.invalidate()
+    }
+    
     
     /// Start timer work with counting cycles
     func start() {
+        session = WKExtendedRuntimeSession()
+        session.start()
+        
         state = .active
         secondsLeft = seconds
         makeTimer()
@@ -62,6 +71,8 @@ class TimerWorker {
         print("[TIMER_WORKER] stop...")
         timer?.invalidate()
         secondsLeft = 0
+        
+        session.invalidate()
     }
     
     /// Pause the worker
@@ -75,7 +86,7 @@ class TimerWorker {
     /// Restart after cycle is finished
     private func restart() {
         stop()
-        fireSound()
+        playNotification()
         secondsLeft = seconds
         start()
     }
@@ -93,7 +104,7 @@ class TimerWorker {
         if secondsLeft == 0 {
             print("[TIMER_WORKER] restart...")
             restart()
-            ciclesCount += 1
+            cyclesCount += 1
         } else {
             secondsLeft -= 1
             print("[TIMER_WORKER] progress: \(secondsLeft.formattedSecondsView)")
@@ -101,8 +112,8 @@ class TimerWorker {
     }
     
     /// Notify user about cycle ending
-    private func fireSound() {
+    private func playNotification() {
         WKInterfaceDevice.current().play(.notification)
     }
-
+    
 }

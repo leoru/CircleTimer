@@ -31,7 +31,9 @@ struct HomeView: View {
     
     var timersList: some View {
         VStack {
-            Text("recent".localized)
+            if viewModel.timers.count > 0 {
+                Text("recent".localized)
+            }
             ForEach(viewModel.timers) { timer in
                 listItem(for: timer)
             }
@@ -40,29 +42,21 @@ struct HomeView: View {
     }
     
     func listItem(for timer: CircleTimer) -> some View {
-        NavigationLink(destination: viewModel.isTimerCreated ? TimerView() : nil, isActive: isActiveLink(for: timer)) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 10.0)
-                    .foregroundColor(.orange)
-                    .cornerRadius(10.0)
-                    .frame(height: 50.0)
-                Text(timer.seconds.formattedSecondsView)
-                    .foregroundColor(Color.black)
-                    .onTapGesture {
-                        viewModel.select(timer: timer)
-                        isActiveLink(for: timer).wrappedValue.toggle()
-                    }
-            }
-            
-        }.buttonStyle(PlainButtonStyle())
-    }
-    
-    func isActiveLink(for timer: CircleTimer) -> Binding<Bool> {
-        return .init(get: { () -> Bool in
-            return self.viewModel.activeLinks[timer.id] ?? false
-        }) { value in
-            self.viewModel.activeLinks[timer.id] = value
+        ZStack {
+            RoundedRectangle(cornerRadius: 10.0)
+                .foregroundColor(.orange)
+                .cornerRadius(10.0)
+                .frame(height: 50.0)
+            Text(timer.seconds.formattedSecondsView)
+                .foregroundColor(Color.black)
+                
         }
+        .onTapGesture {
+            viewModel.select(timer: timer)
+        }
+        .background(NavigationLink(destination: viewModel.isTimerCreated ? TimerView() : nil, tag: timer,
+                                   selection: $viewModel.selectedTimer) { EmptyView() }
+                                   .buttonStyle(PlainButtonStyle()))
     }
 }
 

@@ -308,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				CC970147279D575900208A51 /* CircleTimer.swift */,
-				CCCBDA19279EC7B900E69B51 /* TimerWorker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,6 +323,7 @@
 		CC97014F279D58F900208A51 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CCCBDA19279EC7B900E69B51 /* TimerWorker.swift */,
 				CC970152279D592600208A51 /* TimerService.swift */,
 			);
 			path = Services;

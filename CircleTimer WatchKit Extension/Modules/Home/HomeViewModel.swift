@@ -11,7 +11,8 @@ import Combine
 class HomeViewModel: ObservableObject {
     
     @Published var timers: [CircleTimer] = [CircleTimer]()
-    var activeLinks = [String: Bool]()
+    @Published var selectedTimer: CircleTimer? = nil
+    
     var isTimerCreated: Bool {
         timerService.currentTimer != nil
     }
@@ -21,7 +22,10 @@ class HomeViewModel: ObservableObject {
     
     init(appContext: AppContextProtocol) {
         timerService = appContext.timerService
-        timerService.timersPublisher().assign(to: \.timers, on: self).store(in: &cancellables)
+        timerService.timersPublisher()
+            .map({ $0.sorted(by: { $0.createdDate > $1.createdDate }) })
+            .assign(to: \.timers, on: self)
+            .store(in: &cancellables)
     }
     
     func select(timer: CircleTimer) {
@@ -30,5 +34,6 @@ class HomeViewModel: ObservableObject {
         }
         
         timerService.currentTimer = timer
+        selectedTimer = timer
     }
 }
