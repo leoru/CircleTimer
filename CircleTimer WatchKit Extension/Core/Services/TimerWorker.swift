@@ -8,6 +8,7 @@
 
 import Foundation
 import WatchKit
+import HealthKit
 
 class TimerWorker {
     
@@ -16,6 +17,9 @@ class TimerWorker {
         case stopped
         case paused
     }
+    
+    /// Represents current state of worker
+    var state: State = .stopped
     
     /// Every second timer to countdown
     private var timer: Timer?
@@ -32,31 +36,31 @@ class TimerWorker {
     /// Should worker work repeatively
     private var continious: Bool
     
-    private var session = WKExtendedRuntimeSession()
-    
-    var state: State = .stopped
+    /// Support background working with healthkit session enabled
+    private var sessionProvider: HealthKitSessionProviderProtocol = {
+        HealthKitSessionProvider()
+    }()
     
     init(seconds: Int, continious: Bool) {
         self.seconds = seconds
         self.continious = continious
         self.secondsLeft = seconds
+        
+        sessionProvider.start()
     }
     
     deinit {
-        session.invalidate()
+        sessionProvider.end()
     }
     
+    // MARK: - Public methods
     
     /// Start timer work with counting cycles
     func start() {
-        session = WKExtendedRuntimeSession()
-        session.start()
-        
         state = .active
         secondsLeft = seconds
         makeTimer()
     }
-    
     
     /// Resume time after stopping
     func resume() {
@@ -68,20 +72,22 @@ class TimerWorker {
     func stop() {
         state = .stopped
         
-        print("[TIMER_WORKER] stop...")
+        log("TIMER_WORKER", "stop...")
+        
         timer?.invalidate()
         secondsLeft = 0
-        
-        session.invalidate()
     }
     
     /// Pause the worker
     func pause() {
         state = .paused
         
-        print("[TIMER_WORKER] pause...")
+        log("TIMER_WORKER", "pause...")
+        
         timer?.invalidate()
     }
+    
+    // MARK: - Private methods
     
     /// Restart after cycle is finished
     private func restart() {
@@ -91,23 +97,24 @@ class TimerWorker {
         start()
     }
     
+    // Create scheduled system timer
     private func makeTimer() {
-        print("[TIMER_WORKER] start...")
+        log("TIMER_WORKER", "start...")
+
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
             guard let self = self else { return }
             self.checkCycle()
         })
     }
     
-    /// Checking conditions for current cycle
+    /// Check conditions for current cycle
     private func checkCycle() {
         if secondsLeft == 0 {
-            print("[TIMER_WORKER] restart...")
             restart()
             cyclesCount += 1
         } else {
             secondsLeft -= 1
-            print("[TIMER_WORKER] progress: \(secondsLeft.formattedSecondsView)")
+            log("TIMER_WORKER", "progress: \(secondsLeft.formattedSecondsView)")
         }
     }
     

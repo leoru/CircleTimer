@@ -17,7 +17,6 @@ protocol TimerRepositoryProtocol {
 class TimerRepository: TimerRepositoryProtocol {
     
     struct Config {
-        static let cacheName = "com.kunst.circletimer.storage"
         static let timersKey = "com.kunst.circletimer.storage.timers"
     }
     
@@ -28,7 +27,9 @@ class TimerRepository: TimerRepositoryProtocol {
     private var defaults: UserDefaults = UserDefaults.standard
     
     init() {
-        inMemoryTimers = try! defaults.get(objectType: [CircleTimer].self, forKey: Config.timersKey) ?? []
+        if let timers = try? defaults.get(objectType: [CircleTimer].self, forKey: Config.timersKey) {
+            inMemoryTimers = timers
+        }
     }
     
     func timersPublisher() -> AnyPublisher<[CircleTimer], Never> {
@@ -41,6 +42,7 @@ class TimerRepository: TimerRepositoryProtocol {
         }
         
         inMemoryTimers.append(timer)
+        
         try? defaults.set(object: inMemoryTimers, forKey: Config.timersKey)
     }
 }

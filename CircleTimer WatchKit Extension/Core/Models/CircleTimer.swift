@@ -18,7 +18,8 @@ class CircleTimer: Codable, Identifiable, ObservableObject, Hashable {
     
     /// Is this timer repeative
     var continious: Bool
-    
+
+    /// Date of creation
     var createdDate: Date
     
     init(seconds: Int, continious: Bool) {

@@ -44,7 +44,6 @@ class TimerViewModel: ObservableObject {
         worker?.stop()
         guard let timer = self.timer else { return }
         timerService.destroyWorker(for: timer)
-        
         timerService.currentTimer = nil
     }
     

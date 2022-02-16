@@ -48,10 +48,5 @@ struct CountdownCircleView: View {
         Text(timeLabel).foregroundColor(.white)
             .font(Font.system(size: 30.0))
     }
-//
-//    var totalPeriodTimeLabel: some View {
-//        Text("2 min").foregroundColor(.white).opacity(0.8)
-//            .font(Font.system(size: 17.0))
-//    }
     
 }

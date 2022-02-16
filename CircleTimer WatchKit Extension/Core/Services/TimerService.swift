@@ -18,8 +18,13 @@ protocol TimerServiceProtocol {
 }
 
 class TimerService: TimerServiceProtocol {
+    
     private var repo: TimerRepositoryProtocol
+    
+    /// Timer workers storage by their UID
     private var workers = [String: TimerWorker]()
+    
+    /// Current timer reference
     var currentTimer: CircleTimer?
     
     init(repo: TimerRepositoryProtocol) {
@@ -42,13 +47,16 @@ class TimerService: TimerServiceProtocol {
         let worker = TimerWorker(seconds: timer.seconds, continious: timer.continious)
         workers[timer.id] = worker
         
-        print("[TIMER_WORKER] new worker raised")
+        log("TIMER_SERVICE", "new worker raised")
+        
         return worker
     }
     
     func destroyWorker(for timer: CircleTimer) {
         workers[timer.id]?.stop()
         workers[timer.id] = nil
+        
+        log("TIMER_SERVICE", "worker is destroyed for timer: \(timer.id)")
     }
     
 }

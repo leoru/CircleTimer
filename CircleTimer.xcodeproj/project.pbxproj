@@ -30,6 +30,9 @@
 		CC97014D279D57FF00208A51 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97014C279D57FF00208A51 /* AppContext.swift */; };
 		CC970153279D592600208A51 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970152279D592600208A51 /* TimerService.swift */; };
 		CC970156279D595900208A51 /* TimerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC970155279D595900208A51 /* TimerRepository.swift */; };
+		CCB9B6C927BD08EF00AED7B8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB9B6C827BD08EF00AED7B8 /* HealthKit.framework */; };
+		CCB9B6CB27BD244000AED7B8 /* HealthKitSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB9B6CA27BD244000AED7B8 /* HealthKitSessionProvider.swift */; };
+		CCB9B6CE27BD259D00AED7B8 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB9B6CD27BD259D00AED7B8 /* Logging.swift */; };
 		CCCBDA18279EC44400E69B51 /* UserDefaults+Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCBDA17279EC44400E69B51 /* UserDefaults+Coding.swift */; };
 		CCCBDA1A279EC7B900E69B51 /* TimerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCBDA19279EC7B900E69B51 /* TimerWorker.swift */; };
 		CCCBDA20279F29E500E69B51 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCCBDA22279F29E500E69B51 /* Localizable.strings */; };
@@ -107,6 +110,10 @@
 		CC97014C279D57FF00208A51 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		CC970152279D592600208A51 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 		CC970155279D595900208A51 /* TimerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRepository.swift; sourceTree = "<group>"; };
+		CCB9B6C727BD08EF00AED7B8 /* CircleTimer WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CircleTimer WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		CCB9B6C827BD08EF00AED7B8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		CCB9B6CA27BD244000AED7B8 /* HealthKitSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSessionProvider.swift; sourceTree = "<group>"; };
+		CCB9B6CD27BD259D00AED7B8 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		CCCBDA17279EC44400E69B51 /* UserDefaults+Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Coding.swift"; sourceTree = "<group>"; };
 		CCCBDA19279EC7B900E69B51 /* TimerWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerWorker.swift; sourceTree = "<group>"; };
 		CCCBDA21279F29E500E69B51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -121,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB9B6C927BD08EF00AED7B8 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,10 +166,11 @@
 		CC0C7614279BD077006C220A /* CircleTimer WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CCB9B6C727BD08EF00AED7B8 /* CircleTimer WatchKit Extension.entitlements */,
 				CC0C7633279BD10B006C220A /* App */,
 				CC970145279D558300208A51 /* Common */,
 				CC970150279D590200208A51 /* Core */,
-				CC0C7634279BD11E006C220A /* Modules */,
+				CC0C7634279BD11E006C220A /* Screens */,
 				CC0C7636279BD13F006C220A /* Resources */,
 				CC970144279D553200208A51 /* Views */,
 			);
@@ -186,14 +195,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		CC0C7634279BD11E006C220A /* Modules */ = {
+		CC0C7634279BD11E006C220A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				CC0C763E279BD313006C220A /* Timer */,
 				CC0C763D279BD30D006C220A /* Settings */,
 				CC0C763C279BD309006C220A /* Home */,
 			);
-			path = Modules;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		CC0C7635279BD126006C220A /* Notification */ = {
@@ -256,6 +265,7 @@
 		CC970130279BD7EC00208A51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CCB9B6C827BD08EF00AED7B8 /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -325,6 +335,7 @@
 			children = (
 				CCCBDA19279EC7B900E69B51 /* TimerWorker.swift */,
 				CC970152279D592600208A51 /* TimerService.swift */,
+				CCB9B6CA27BD244000AED7B8 /* HealthKitSessionProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -334,6 +345,7 @@
 			children = (
 				CC97014E279D58D800208A51 /* Context */,
 				CCCBDA16279EC42F00E69B51 /* Extensions */,
+				CCB9B6CC27BD259500AED7B8 /* Logging */,
 				CC970146279D574C00208A51 /* Models */,
 				CC970154279D594B00208A51 /* Repositories */,
 				CC97014F279D58F900208A51 /* Services */,
@@ -347,6 +359,14 @@
 				CC970155279D595900208A51 /* TimerRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		CCB9B6CC27BD259500AED7B8 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				CCB9B6CD27BD259D00AED7B8 /* Logging.swift */,
+			);
+			path = Logging;
 			sourceTree = "<group>";
 		};
 		CCCBDA16279EC42F00E69B51 /* Extensions */ = {
@@ -504,6 +524,7 @@
 				CCCBDA27279F2CF100E69B51 /* TimePickerTitleModifier.swift in Sources */,
 				CCCBDA2B279F44B600E69B51 /* TimerButtonModifier.swift in Sources */,
 				CC970141279C134A00208A51 /* CountdownCircleView.swift in Sources */,
+				CCB9B6CE27BD259D00AED7B8 /* Logging.swift in Sources */,
 				CC970136279BD9D900208A51 /* HomeView.swift in Sources */,
 				CC0C761E279BD077006C220A /* ComplicationController.swift in Sources */,
 				CC0C7640279BD325006C220A /* TimerViewModel.swift in Sources */,
@@ -515,6 +536,7 @@
 				CC0C761C279BD077006C220A /* NotificationView.swift in Sources */,
 				CC970139279BDC0B00208A51 /* TimePickerView.swift in Sources */,
 				CC0C7642279BD32E006C220A /* SettingsViewModel.swift in Sources */,
+				CCB9B6CB27BD244000AED7B8 /* HealthKitSessionProvider.swift in Sources */,
 				CC970148279D575900208A51 /* CircleTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "CircleTimer WatchKit Extension/CircleTimer WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -678,7 +701,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CircleTimer WatchKit Extension/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "CircleTimer WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = ComplicationController;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -703,6 +726,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "CircleTimer WatchKit Extension/CircleTimer WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -712,7 +736,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CircleTimer WatchKit Extension/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "CircleTimer WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = ComplicationController;
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
