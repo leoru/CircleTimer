@@ -26,7 +26,9 @@ struct TimerView: View {
             }.padding(.top, 5.0)
         }
         .onAppear {
-            viewModel.start()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                viewModel.start()
+            }
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)

@@ -41,7 +41,6 @@ struct CountdownCircleView: View {
             .stroke(style: StrokeStyle(lineWidth: Metrics.lineWidth, lineCap: .round, lineJoin: .round))
             .foregroundColor(Metrics.foregroundColor)
             .rotationEffect(Angle(degrees: 270.0))
-            .animation(.linear)
     }
     
     var countdownTimeLabel: some View {
