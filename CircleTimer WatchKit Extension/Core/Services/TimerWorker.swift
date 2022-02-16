@@ -37,14 +37,15 @@ class TimerWorker {
     private var continious: Bool
     
     /// Support background working with healthkit session enabled
-    private var sessionProvider: HealthKitSessionProviderProtocol = {
-        HealthKitSessionProvider()
-    }()
+    private var sessionProvider: HealthKitSessionProviderProtocol
     
-    init(seconds: Int, continious: Bool) {
+    init(seconds: Int,
+         continious: Bool,
+         sessionProvider: HealthKitSessionProviderProtocol = HealthKitSessionProvider()) {
         self.seconds = seconds
         self.continious = continious
         self.secondsLeft = seconds
+        self.sessionProvider = sessionProvider
         
         sessionProvider.start()
     }
