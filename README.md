@@ -16,6 +16,7 @@ Timer app with ability to reschedule next timer cycle automatically right after 
 - WatchKit
 - HealthKit
 - MVVM
+- Combine
 
 # Maintainers
 - [Kirill Kunst](https://github.com/leoru) ([@kirill_kunst](https://twitter.com/kirill_kunst))
